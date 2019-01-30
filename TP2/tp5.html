@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+</head>
+
+<body onload="init()">
+    <script>
+        var tabTime = [];
+        var tabCarre = [];
+        var tabColor = ["red","green","blue","yellow","purple","orange","cyan","pink","black","grey"];
+        for (i = 0; i < 10; i++) {
+            var newDiv = document.createElement("div");
+            newDiv.id = "box" + i;
+            newDiv.className = "box";
+            document.body.appendChild(newDiv);
+            tabCarre[i] = document.getElementById("box" + i);
+            document.getElementById("box" + i).style.background = tabColor[i];
+        }
+
+        var largeur = window.innerWidth;
+
+        function updateBox(carre) {
+            var marge = parseInt(carre.style.marginLeft);
+            if (isNaN(marge)) {
+                marge = 0;
+            }
+            if (marge <= largeur) {
+                marge += 10;
+                carre.style.marginLeft = marge + 'px';
+            } else {
+                window.clearInterval(window.time);
+            }
+
+        }
+        
+        function interval(i){
+            tabTime[i] = window.setInterval(updateBox, 100, tabCarre[i]);
+        }
+
+        function init() {
+            for (i = 0; i < 10; i++) {
+                window.setTimeout(interval, 4000 + i * 1000, i);
+            }
+        }
+
+    </script>
+
+</body>
+
+<style>
+    .box {
+        height: 15px;
+        width: 15px;
+        margin-left: 0px;
+    }
+
+</style>
+
+</html>
