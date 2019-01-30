@@ -4,7 +4,7 @@
 
 </head>
 
-<body>
+<body onload="init()">
     <div id="box"></div>
     <script>
         var carre = document.getElementById("box");
@@ -27,7 +27,9 @@
             window.time = window.setInterval(updateBox, 100);
         }
 
-        updateWindow();
+        function init(){
+            window.setTimeout(updateWindow, 2000);
+        }
 
     </script>
 
