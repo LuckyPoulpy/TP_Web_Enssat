@@ -1,0 +1,66 @@
+<html>
+
+<head>
+
+</head>
+
+<body onload="init()">
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box"></div>
+    <div id="box3" class="box"></div>
+    <script>
+        var carre1 = document.getElementById("box1");
+        var carre2 = document.getElementById("box2");
+        var carre3 = document.getElementById("box3");
+
+        var largeur = window.innerWidth;
+
+        function updateBox(carre) {
+            var marge = parseInt(carre.style.marginLeft);
+            if(isNaN(marge)){
+                marge = 0;
+            }
+            console.log(carre.style.marginLeft);
+            console.log("updateBox "+marge);
+            if (marge <= largeur) {
+                marge += 10;
+                carre.style.marginLeft = marge + 'px';
+            } else {
+                window.clearInterval(window.time);
+            }
+            
+        }
+
+        function updateWindow(carre) {
+            window.time = window.setInterval(updateBox, 100, carre);
+        }
+
+        function init(){
+            window.setTimeout(updateWindow, 4000, carre1);
+            window.setTimeout(updateWindow, 5000, carre2);
+            window.setTimeout(updateWindow, 6000, carre3);
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+<style>
+    .box {
+        height: 15px;
+        width: 15px;
+        margin-left: 0px;       
+    }
+    #box1{
+        background: red;
+    }
+    #box2 {
+        background: cyan;
+    }
+    #box3 {
+        background: black;
+    }
+
+</style>
