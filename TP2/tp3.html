@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var carre = document.getElementById("box");
+        var marge = 5;
+        var largeur = window.innerWidth;
+
+        function updateBox() {
+            if (marge <= largeur) {
+                console.log("appel update");
+                marge += 10;
+                carre.style.marginLeft = marge + 'px';
+            } else {
+                alert("Le carré rouge est arrivé au bord de l'écran");
+                window.clearInterval(window.time);
+            }
+            
+        }
+
+        function updateWindow() {
+            window.time = window.setInterval(updateBox, 100);
+        }
+
+        updateWindow();
+
+    </script>
+
+</body>
+
+</html>
+
+<style>
+    div {
+        background: red;
+        height: 15px;
+        width: 15px;
+        margin-left: 0px;
+    }
+
+</style>
