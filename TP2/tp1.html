@@ -1,0 +1,41 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id="count"></div>
+    <script>
+        var baseCounterValue = 10;
+        var counterValue;
+
+        document.getElementById("count").innerHTML = baseCounterValue.toString();
+        counterValue = parseInt(document.getElementById("count").innerHTML);
+
+        console.log(counterValue);
+
+        function countdown() {
+            counterValue = parseInt(document.getElementById("count").innerHTML);
+            if (counterValue > 0) {
+                counterValue -= 1;
+                console.log(counterValue);
+                document.getElementById("count").innerHTML = counterValue.toString();
+            } else {
+                window.clearInterval(window.count);
+            }
+        }
+
+        function updateCounter() {
+            window.count = window.setInterval(countdown, 1000);
+        }
+        updateCounter();
+
+    </script>
+
+</body>
+
+</html>
+
+<style>
+</style>
