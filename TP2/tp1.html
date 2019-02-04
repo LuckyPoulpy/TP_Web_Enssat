@@ -17,7 +17,6 @@
             counterValue = parseInt(document.getElementById("count").innerHTML);
             if (counterValue > 0) {
                 counterValue -= 1;
-                console.log(counterValue);
                 document.getElementById("count").innerHTML = counterValue.toString();
             } else {
                 window.clearInterval(window.count);
